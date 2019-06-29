@@ -31,8 +31,10 @@ public class Main {
         for(String s :subdivisions){
             int index= 0;
             for(String s1: s.split("\\\\")){
-                listResult.add(s.substring(0,index+s1.length()));
-                index+=s1.length()+1; //+1 потому что надо посчитать еще: \
+                index+=s1.length();
+                listResult.add(s.substring(0,index));
+                
+                index+=+1; //+1 потому что надо посчитать еще: \
             }
         }
 
