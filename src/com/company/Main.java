@@ -33,19 +33,13 @@ public class Main {
             for(String s1: s.split("\\\\")){
                 index+=s1.length();
                 listResult.add(s.substring(0,index));
-                
+
                 index+=+1; //+1 потому что надо посчитать еще: \
             }
         }
 
-        return listResult.stream().sorted(Main::compare).collect(Collectors.toList());
+        return listResult.stream().sorted(Sorting::compare).collect(Collectors.toList());
     }
 
-    private static int compare(String a, String b) {
-        if (a.length() < b.length() && b.startsWith(a))
-            return -1;
-        if (b.length() < a.length() && a.startsWith(b))
-            return 1;
-        return b.compareTo(a);
-    }
+
 }
